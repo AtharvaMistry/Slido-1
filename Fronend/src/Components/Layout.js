@@ -26,6 +26,7 @@ import Inserts from './MasterData/Inserts';
 import Color from './MasterData/Color';
 import Accountant from './Quotation/Accountant/Accountant';
 import AccountantLogic from './Quotation/Accountant/AccountantLogic';
+import Role from './Role';
 
 function Layout1() {
 
@@ -109,6 +110,13 @@ function Layout1() {
                                     </div>
                                 </Link>
 
+                                <Link to="/role">
+                                    <div className='flex shrink-0 justify-start items-center text-sm text-gray-600 hover:text-black hover:duration-500 lg:text-xl xl:text-xl 2xl:text-2xl'>
+                                        <i class="fa fa-users  me-3" aria-hidden="true"></i>
+                                        <p className='font-medium  '>Role</p>
+                                    </div>
+                                </Link>
+
                                 <Link to="/admin">
                                     <div className='flex shrink-0 justify-start items-center text-sm text-gray-600 hover:text-black hover:duration-500 lg:text-xl xl:text-xl 2xl:text-2xl'>
                                         <i class="fa fa-users  me-3" aria-hidden="true"></i>
@@ -161,6 +169,8 @@ function Layout1() {
                             {/* <Route path="/quote" element={<Quote />} /> */}
                             <Route path="/payment" element={<PaymentInvoice />} />
                             <Route path="/opr" element={<OPR />} />
+                            <Route path="/role" element={<Role />} />
+
 
                             {/* master data */}
                             <Route path="/masterData" element={<MasterData />} />
