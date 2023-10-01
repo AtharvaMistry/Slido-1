@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MaterialOption from './MaterialOption';
 import Profiles from './Profiles';
 import axios from 'axios';
+import {  message } from 'antd';
 
 function Quatation() {
 
@@ -18,7 +19,7 @@ function Quatation() {
         panelText: [],
         selectedMaterial: '',
         selectedProject: '',
-        selectedSubOption: '', 
+        selectedSubOption: '',
         total_cost: '',
         soft_close: '',
         profileData: {
@@ -58,7 +59,7 @@ function Quatation() {
         setSelectedDoors((prevDoors) => {
             setUserData((prevUserData) => ({
                 ...prevUserData,
-                Number_of_Door: prevDoors 
+                Number_of_Door: prevDoors
             }));
             console.log("doors", doors);
         });
@@ -78,9 +79,12 @@ function Quatation() {
         });
     };
 
+    // todo message
+    const [messageApi, contextHolder] = message.useMessage();
 
 
     const handleQuotation = () => {
+        messageApi.info('Quatation is added successfully !')
         const profileData = {
             selectedProject: userData.selectedProject,
             selectedSubOption: userData.selectedSubOption || '',
@@ -2302,7 +2306,7 @@ function Quatation() {
 
                     'Peak-Premium Highlighter-null': 3553,
                 };
-               
+
                 const materialOption1Door1 = userData.panelText[0];
                 const materialOption2Door1 = userData.panelText[1];
 
@@ -3065,7 +3069,7 @@ function Quatation() {
                 console.log('Height:', height);
 
                 const totalArea = (width * height) / (304.8 * 304.8);
-                
+
                 const smallPanelArea = (totalArea) * (3 / 40);
                 const largePanelArea = (totalArea) * (7 / 60);
                 let totalCost = 0;
@@ -3118,7 +3122,7 @@ function Quatation() {
 
                     'Peak-Premium Highlighter-null': 3553,
                 };
-                
+
                 const materialOption1Door1 = userData.panelText[0];
                 const materialOption2Door1 = userData.panelText[1];
                 const materialOption3Door1 = userData.panelText[2];
@@ -3400,6 +3404,8 @@ function Quatation() {
 
     return (
         <div className="container min-w-full grid gap-y-5 ">
+
+            {contextHolder}
             <h1 className='text-2xl font-bold text-center underline'>Create Quotation</h1>
             {/* todo user */}
             <div className='text-xl p-5 border rounded-lg shadow-lg'>

@@ -24,6 +24,8 @@ import ProductType from './MasterData/ProductType';
 import Quatation from './Quotation/Quatation';
 import Inserts from './MasterData/Inserts';
 import Color from './MasterData/Color';
+import Accountant from './Quotation/Accountant/Accountant';
+import AccountantLogic from './Quotation/Accountant/AccountantLogic';
 
 function Layout1() {
 
@@ -74,6 +76,14 @@ function Layout1() {
                                     <div className='flex shrink-0 justify-start items-center text-sm text-gray-600 hover:text-black hover:duration-500 lg:text-xl xl:text-xl 2xl:text-2xl'>
                                         <i class="fa fa-credit-card-alt  me-3" aria-hidden="true"></i>
                                         <p className='font-medium  '>Payment Invoice</p>
+                                    </div>
+                                </Link>
+
+
+                                <Link to="/account">
+                                    <div className='flex shrink-0 justify-start items-center text-sm text-gray-600 hover:text-black hover:duration-500 lg:text-xl xl:text-xl 2xl:text-2xl'>
+                                        <i class="fa fa-user  me-3" aria-hidden="true"></i>
+                                        <p className='font-medium  '>Accountant</p>
                                     </div>
                                 </Link>
 
@@ -160,7 +170,7 @@ function Layout1() {
                             <Route path="/roomMD" element={<Room />} />
                             <Route path="/insertMD" element={<Inserts />} />
                             <Route path="/color" element={<Color />} />
-
+                            <Route path="/account" element={<AccountantLogic />} />
                             <Route path="/productTypeMD" element={<ProductType />} />
 
 

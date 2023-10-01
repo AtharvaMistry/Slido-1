@@ -2,7 +2,9 @@ const userauth = require("../Model/Auth.model");
 // const bcrypt = require("bcrypt");
 // const bodyparser = require("body-parser");
 const axios = require('axios');
+const bcrypt = require('bcrypt')
 
+exports.hashpassword = password => bcrypt.hashSync(password, salt)
 
 exports.customerUser = async (req, res) => {
     try {

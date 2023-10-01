@@ -3,10 +3,8 @@ import { Button, Modal } from 'antd';
 import MaterialOption from './MaterialOption';
 import Profiles from './Profiles';
 import axios from 'axios';
-function Revision() {
+function Revision({ userId }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-
 
     const handleCancel = () => {
         setIsModalOpen(false);
@@ -18,24 +16,30 @@ function Revision() {
     useEffect(() => {
         axios.get('http://localhost:8000/api/viewQuote')
             .then((response) => {
-                setUsers(response.data);
+                setUsers(response.data.data);
+                console.log(users, "users");
             })
             .catch((error) => {
                 console.error("Error fetching user data:", error);
             });
     }, []);
-    const showModal = (user) => {
-        console.log('Selected User:', user);
-        setSelectedUser(user);
-        setIsModalOpen(true);
-        console.log('Selected User ID:', user.id);
+
+    const showModal = (userId) => {
+        const selectedUserData = userId.find(user => user.Customer_name );
+        if (selectedUserData) {
+            setSelectedUser(selectedUserData);
+            setIsModalOpen(true);
+            console.log('Selected User ID:', selectedUserData._id);
+        } else {
+            console.error('User not found');
+        }
     };
+
+
+
 
     // todo state management
     const [userData, setUserData] = useState({
-        Customer_name: '',
-        Location_Name: '',
-        Date: '',
         Number_of_Door: '',
         Width: '',
         Height: '',
@@ -119,7 +123,7 @@ function Revision() {
         };
 
         axios
-            .put('http://localhost:8000/api/upadteQuote/:id', userDataWithProfileData)
+            .put(`http://localhost:8000/api/upadteQuote/${userId}`, userDataWithProfileData)
             .then((response) => {
                 console.log('Quotation updated successfully:', response.data);
             })
@@ -128,9 +132,6 @@ function Revision() {
             });
 
         setUserData({
-            Customer_name: '',
-            Location_Name: '',
-            Date: '',
             Number_of_Door: '',
             Width: '',
             Height: '',

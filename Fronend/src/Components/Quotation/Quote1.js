@@ -37,6 +37,7 @@ function Quote1() {
                 console.error('error fetching data:', err);
             });
     }
+    
     const handleRefreshClick = () => {
         setFilterData("");
         setFilteredData([]);
@@ -47,7 +48,7 @@ function Quote1() {
         fetchData();
     }, [])
 
-
+// todo filter
     // filter
     const [filteredData, setFilteredData] = useState([]);
     const [filterData, setFilterData] = useState("");
@@ -66,6 +67,7 @@ function Quote1() {
         }
     };
 
+    // todo pdf
 
     const handlePDF = (quotationData) => {
         const pdf = new jsPDF();
@@ -331,7 +333,7 @@ function Quote1() {
                                 <td className='text-sm py-4 lg:text-lg'>
                                     <button className='px-3 py-1 bg-lime-500 rounded-md' onClick={() => handlePDF(quotation)}>Generate</button>
                                 </td>
-                                <td className='text-sm py-4 lg:text-lg'><Status /></td>
+                                <td className='text-sm py-4 lg:text-lg'><Status userId={quotation._id}/></td>
                             </tr>)}
                     </table>
 

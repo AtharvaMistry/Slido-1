@@ -14,6 +14,8 @@ const room = require('./room_route')
 const customer = require('./type_of_customer_route')
 const material = require('./material_route')
 const color = require('./color_router')
+const payment = require('./payment_route')
+const accountant = require('./accountant_route')
 
 router.use(
     '/api',
@@ -30,7 +32,9 @@ router.use(
     room,
     customer,
     material,
-    color
+    color,
+    payment,
+    accountant
 )
 
 module.exports = router
