@@ -51,3 +51,6 @@ table td {
   font-size: 20px;
 }
 
+.ant-select-selector{
+  width: 100px !important;
+}

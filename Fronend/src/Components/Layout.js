@@ -24,8 +24,9 @@ import ProductType from './MasterData/ProductType';
 import Quatation from './Quotation/Quatation';
 import Inserts from './MasterData/Inserts';
 import Color from './MasterData/Color';
-import Accountant from './Quotation/Accountant/Accountant';
-import AccountantLogic from './Quotation/Accountant/AccountantLogic';
+import Accountant from './Quotation/Accountant';
+import AccountantLogic from './Quotation/AccountantLogic';
+import SalesOrder from './SalesOrder/SalesOrder';
 
 function Layout1() {
 
@@ -101,7 +102,12 @@ function Layout1() {
                                         <p className='font-medium  '>Master Data</p>
                                     </div>
                                 </Link>
-
+                                <Link to="/sales-order">
+                                    <div className='flex shrink-0 justify-start items-center text-sm text-gray-600 hover:text-black hover:duration-500 lg:text-xl xl:text-xl 2xl:text-2xl'>
+                                        <i class="fa fa-users  me-3" aria-hidden="true"></i>
+                                        <p className='font-medium  '>Sales Order</p>
+                                    </div>
+                                </Link>
                                 <Link to="/opr">
                                     <div className='flex shrink-0 justify-start items-center text-sm text-gray-600 hover:text-black hover:duration-500 lg:text-xl xl:text-xl 2xl:text-2xl'>
                                         <i class="fa fa-users  me-3" aria-hidden="true"></i>
@@ -177,6 +183,8 @@ function Layout1() {
                             <Route path="/employee" element={<Employees />} />
                             <Route path="/admin" element={<Admin />} />
                             <Route path="/setting" element={<Settings />} />
+                            <Route path="/sales-order" element={<SalesOrder />} />
+
 
                         </Routes>
                     </div>
